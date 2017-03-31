@@ -10,7 +10,7 @@
     using Microsoft.Owin.Security;
 
     using PrimusFlex.Data.Models;
-    using PrimusFlex.Web.Models;
+    using PrimusFlex.Web.ViewModels;
 
     [Authorize]
     public class AccountController : Controller

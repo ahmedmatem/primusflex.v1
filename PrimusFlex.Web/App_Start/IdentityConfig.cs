@@ -13,7 +13,7 @@
     using Microsoft.Owin;
     using Microsoft.Owin.Security;
     using PrimusFlex.Data.Models;
-    using PrimusFlex.Web.Models;
+    using PrimusFlex.Web.ViewModels;
 
     public class EmailService : IIdentityMessageService
     {
