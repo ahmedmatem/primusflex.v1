@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimusFlex.Web", "PrimusFlex.Web\PrimusFlex.Web.csproj", "{88DD2EAE-BB84-4342-81E4-ED477FE5BEAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimusFlex.Data", "PrimusFlex.Data\PrimusFlex.Data.csproj", "{1B48A3F1-8DE6-48E1-B4A6-34C9EC24B229}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88DD2EAE-BB84-4342-81E4-ED477FE5BEAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88DD2EAE-BB84-4342-81E4-ED477FE5BEAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88DD2EAE-BB84-4342-81E4-ED477FE5BEAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88DD2EAE-BB84-4342-81E4-ED477FE5BEAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B48A3F1-8DE6-48E1-B4A6-34C9EC24B229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B48A3F1-8DE6-48E1-B4A6-34C9EC24B229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B48A3F1-8DE6-48E1-B4A6-34C9EC24B229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B48A3F1-8DE6-48E1-B4A6-34C9EC24B229}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

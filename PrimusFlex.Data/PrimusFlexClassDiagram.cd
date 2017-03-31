@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PrimusFlex.Data.Models.ApplicationDbContext" Collapsed="true">
+    <Position X="7" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ApplicationDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrimusFlex.Data.Models.ApplicationUser" Collapsed="true">
+    <Position X="5.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ApplicationUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrimusFlex.Data.Models.BaseImage" Collapsed="true">
+    <Position X="7.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Models\BaseImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrimusFlex.Data.Models.BaseItem" Collapsed="true">
+    <Position X="4.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BaseItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrimusFlex.Data.Models.DayworkRecord" Collapsed="true">
+    <Position X="11.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DayworkRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrimusFlex.Data.Models.Image" Collapsed="true">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Image.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrimusFlex.Data.Models.Item" Collapsed="true">
+    <Position X="4.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrimusFlex.Data.Models.MorDItem" Collapsed="true">
+    <Position X="4.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAgAAAgAAAABQEAAAAAAAAAAAAAAgAAAI=</HashCode>
+      <FileName>Models\MorDItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrimusFlex.Data.Models.Site" Collapsed="true">
+    <Position X="13" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAQAAAAAAAACAAAAgAAAAAA=</HashCode>
+      <FileName>Models\Site.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrimusFlex.Data.Models.Size" Collapsed="true">
+    <Position X="12.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Size.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrimusFlex.Data.Common.BaseModel&lt;TKey&gt;" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACAABAAAAAAAAAAAAAAAAAAAACAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Common\BaseModel{TKey}.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PrimusFlex.Data.Common.DbRepository&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AA4AAIAAAgIAAAAAAAAAAAAAAAEIAAAAAIAAAAAAAIA=</HashCode>
+      <FileName>Common\DbRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PrimusFlex.Data.Models.KitchenRecord" Collapsed="true">
+    <Position X="9.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAIAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Models\KitchenRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrimusFlex.Data.Models.Record" Collapsed="true">
+    <Position X="10.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAEAAAgAAAAAAAAAAAABAAABABAAAAAAEAAIA=</HashCode>
+      <FileName>Models\Record.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="PrimusFlex.Data.Common.IAuditInfo" Collapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\IAuditInfo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PrimusFlex.Data.Common.IDbRepository&lt;T, TKey&gt;" Collapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AA4AAIAAAAIAAAAAAAAAAAAAAAEAAAAAAIAAAAAAAIA=</HashCode>
+      <FileName>Common\IDbRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PrimusFlex.Data.Common.IDeletableEntity" Collapsed="true">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Common\IDeletableEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="PrimusFlex.Data.Models.CompanyType" Collapsed="true">
+    <Position X="10.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\CompanyType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PrimusFlex.Data.Models.HandSide" Collapsed="true">
+    <Position X="12.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Models\HandSide.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PrimusFlex.Data.Models.MorDType" Collapsed="true">
+    <Position X="14.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MorDType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PrimusFlex.Data.Models.WorktopShape" Collapsed="true">
+    <Position X="10.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAEAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\WorktopShape.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
