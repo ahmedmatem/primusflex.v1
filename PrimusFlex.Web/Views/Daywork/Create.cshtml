@@ -1,0 +1,127 @@
+﻿@model PrimusFlex.Web.ViewModels.DayworkCreateViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Create new daywork</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", id = "datepicker" } })
+                <br />
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SiteId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SiteId, Model.SiteNames, "Select a site name", new { htmlAttributes = new { @class = "form-control" } })
+                <button class="btn btn-default" id="create-site"><i class="fa fa-plus"> New site</i></button>
+                <br />
+                @Html.ValidationMessageFor(model => model.SiteId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CompanyType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.CompanyType, new { htmlAttributes = new { @class = "form-control" } })
+                <br />
+                @Html.ValidationMessageFor(model => model.CompanyType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                <br />
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
+                <br />
+                @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<!--Modal dialog for new site-->
+@Html.Partial("_CreateSiteViewPartial")
+
+<div>
+    <a href="@Url.Content("~/Daywork")"><i class="fa fa-arrow-left"></i> Back to list</a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $( function() {
+          $("#datepicker").datepicker({
+              dateFormat: "dd/mm/yy"
+          });
+        });
+
+        $("#create-site").button().on("click", function () {
+            dialog.dialog("open");
+        });
+
+        dialog = $("#dialog-form").dialog({
+            autoOpen: false,
+            height: 400,
+            width: 350,
+            modal: true,
+            buttons: {
+                Cancel: function () {
+                    dialog.dialog("close");
+                }
+            }
+        });
+
+        $("#create-site-form").submit(function (e) {
+            e.preventDefault();
+
+            var $form = $(this);
+            var url = $form.attr("action");
+            var siteName = $("#site-name").val();
+            var siteAddress = $("#site-address").val();
+            var sitePostCode = $("#site-post-code").val();
+
+            $.post(url,
+                { Name: siteName, Address: siteAddress, PostCode: sitePostCode },
+                function (response) {
+                    if (response.status == "OK") {
+                        alert(response.message);
+                        location.reload();  // reload page
+                    } else if (response.status == "Error") {
+                        alert(response.mesage);
+                    }
+                }
+            );
+        });
+    </script>
+}

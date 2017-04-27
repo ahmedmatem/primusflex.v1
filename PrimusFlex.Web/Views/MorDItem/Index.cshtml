@@ -1,0 +1,39 @@
+﻿@model IEnumerable<PrimusFlex.Web.ViewModels.KitchenWithMorDItemViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Kitchens with missings and/or damages</h2>
+
+@if(TempData["Message"] != null){
+    <p class="text-danger">Something went wrong: @TempData["Message"]</p>
+}
+
+<table class="table table-bordered table-hover table-condensed">
+    <thead>
+        <tr class="thead-primary">
+            <th>@Html.DisplayNameFor(m => m.Date)</th>
+            <th>@Html.DisplayNameFor(m => m.SiteName)</th>
+            <th>@Html.DisplayNameFor(m => m.PlotNumber)</th>
+            <th>@Html.DisplayNameFor(m => m.Company)</th>
+            <th class="text-center">View</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(m => item.Date)</td>
+            <td>@Html.DisplayFor(m => item.SiteName)</td>
+            <td>@Html.DisplayFor(m => item.PlotNumber)</td>
+            <td>@item.Company.ToString()</td>
+            <td class="text-center">
+                <a href="@Url.Content("~/MorDItem/ForKitchen/" + item.Id)" title="View"><i class="fa fa-eye"></i></a>
+            </td>
+        </tr>
+    }
+    <tbody>
+
+    </tbody>
+</table>
+

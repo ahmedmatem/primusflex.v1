@@ -2,11 +2,12 @@
 {
     using System.Collections.Generic;
 
-    public class KitchenRecord  : Record
+    public class Kitchen  : Record
     {
-        public KitchenRecord()
+        public Kitchen()
         {
             this.MorDItems = new HashSet<MorDItem>();
+            this.KitchenImages = new HashSet<KitchenImage>();
         }
 
         public string PlotNumber { get; set; }
@@ -16,5 +17,7 @@
         // Navigation properties
 
         public virtual ICollection<MorDItem> MorDItems { get; set; }
+
+        public virtual ICollection<KitchenImage> KitchenImages { get; set; }
     }
 }

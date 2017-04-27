@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PrimusFlex.Web.ViewModels.ItemViewModel>
+
+@{
+    ViewBag.Title = "ForKitchen";
+    int i = 1;
+}
+
+<h2>Items (@Model.Count())</h2>
+
+<p>
+    <a href="@Url.Content("~/Item/Create")" class="btn btn-primary"><i class="fa fa-plus"> Create new</i></a>
+</p>
+
+@if (Model.Count() != 0)
+{
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered table-condensed table-hover">
+                <thead>
+                    <tr class="thead-primary">
+                        <th class="text-center">#</th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ShortName)
+                        </th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center col-md-1">
+                            @i
+                        </td>
+                        <td class="col-md-7">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td class="col-md-2">
+                            @if (item.ShortName == null)
+                            {
+                                var shortName = item.Name.Length > 3 ? item.Name.Substring(0, 3) : item.Name;
+                                @Html.DisplayFor(modelItem => shortName)
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(modelItem => item.ShortName)
+                            }
+                        </td>
+                        <td class=" col-md-2 text-center">
+                            <a href="@Url.Content("~/Item/Edit/" + item.Id)" title="Edit"><i class="fa fa-edit"></i></a>
+                            <a href="@Url.Content("~/Item/Delete/" + item.Id)" title="Delete"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    i++;
+                }
+
+            </table>
+        </div>
+    </div>
+}

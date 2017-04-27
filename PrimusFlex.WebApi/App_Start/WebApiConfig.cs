@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace PrimusFlex.Web
+namespace PrimusFlex.WebApi
 {
     public static class WebApiConfig
     {

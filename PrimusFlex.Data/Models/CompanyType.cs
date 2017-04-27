@@ -2,6 +2,6 @@
 {
     public enum CompanyType
     {
-        RICHMOND, HAT
+        Richmond, HAT
     }
 }

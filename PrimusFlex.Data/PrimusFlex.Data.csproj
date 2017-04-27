@@ -68,11 +68,12 @@
     <Compile Include="Models\BaseImage.cs" />
     <Compile Include="Models\BaseItem.cs" />
     <Compile Include="Models\CompanyType.cs" />
-    <Compile Include="Models\DayworkRecord.cs" />
+    <Compile Include="Models\Daywork.cs" />
+    <Compile Include="Models\DayworkImage.cs" />
     <Compile Include="Models\HandSide.cs" />
-    <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\KitchenImage.cs" />
     <Compile Include="Models\Item.cs" />
-    <Compile Include="Models\KitchenRecord.cs" />
+    <Compile Include="Models\Kitchen.cs" />
     <Compile Include="Models\MorDItem.cs" />
     <Compile Include="Models\MorDType.cs" />
     <Compile Include="Models\Record.cs" />

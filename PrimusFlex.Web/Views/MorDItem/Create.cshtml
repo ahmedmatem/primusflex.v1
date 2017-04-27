@@ -1,0 +1,125 @@
+﻿@model PrimusFlex.Web.ViewModels.MorDItemViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create record for missing or damage item</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @*<h4>MorDItemViewModel</h4>*@
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(m => m.KitchenId)
+
+        <!--Missing or damage-->
+        <div class="form-group">
+            @Html.LabelFor(model => model.MorDType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(m => m.MorDType, "Select", new { @class = "form-control width-2x"})
+                @Html.ValidationMessageFor(model => model.MorDType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <!--Item-->
+        <div class="form-group">
+            @Html.LabelFor(model => model.ItemId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ItemId, (List<SelectListItem>)ViewBag.Items, "Select an item", new { htmlAttributes = new { @class = "form-control" } })
+                <button class="btn btn-default" id="create-item"><i class="fa fa-plus"> New item</i></button>
+                <br />
+                @Html.ValidationMessageFor(model => model.ItemId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!--Count-->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Count, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Count, new { htmlAttributes = new { @class = "form-control width-1x", placeholder = "0 ... 9" } })
+                @Html.ValidationMessageFor(model => model.Count, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!--Size-->
+        <div class="form-group">
+            <label for="" class="control-label col-md-2">Size</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Width, new { htmlAttributes = new { @class = "form-control width-1x", placeholder = "Width" } }) x 
+                @Html.EditorFor(model => model.Height, new { htmlAttributes = new { @class = "form-control width-1x", placeholder = "Height" } })
+                @Html.ValidationMessageFor(model => model.Width, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!--Hand side-->
+        <div class="form-group">
+            @Html.LabelFor(model => model.HandSide, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(m => m.HandSide, "Select", new { @class = "form-control width-2x"})
+                @Html.ValidationMessageFor(model => model.HandSide, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<!--Modal dialog for new item-->
+@Html.Partial("_CreateItemViewPartial")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $("#create-item").button().on("click", function (e) {
+            e.preventDefault();
+            dialog.dialog("open");
+        });
+
+        dialog = $("#dialog-form").dialog({
+            autoOpen: false,
+            height: 400,
+            width: 350,
+            modal: true,
+            buttons: {
+                Cancel: function () {
+                    dialog.dialog("close");
+                }
+            }
+        });
+
+        $("#create-item-form").submit(function (e) {
+            e.preventDefault();
+
+            var $form = $(this);
+            var url = $form.attr("action");
+            var itemName = $("#item-name").val();
+            var itemShortName = $("#item-short-name").val();
+
+            $.post(url,
+                { Name: itemName, ShortName: itemShortName },
+                function (response) {
+                    if (response.status == "OK") {
+                        alert(response.message);
+                        location.reload();  // reload page
+                    } else if (response.status == "Error") {
+                        alert(response.mesage);
+                    }
+                }
+            );
+        });
+    </script>
+}

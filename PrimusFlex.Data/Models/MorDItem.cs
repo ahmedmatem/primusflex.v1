@@ -1,15 +1,16 @@
 ﻿namespace PrimusFlex.Data.Models
 {
     using System.ComponentModel.DataAnnotations.Schema;
+    using PrimusFlex.Data.Common;
 
     [Table("MorDItems")]
-    public class MorDItem : Item
+    public class MorDItem : BaseModel<int>
     {
-        public int Count { get; set; }
+        public int? Count { get; set; }
+        
+        public Size Size { get; set; }
 
-        public Site Size { get; set; }
-
-        public HandSide HandSide { get; set; }
+        public HandSide? HandSide { get; set; }
 
         public MorDType MorDType { get; set; }
 
@@ -21,7 +22,7 @@
 
         public virtual Item Item { get; set; }
 
-        public virtual KitchenRecord Kitchen { get; set; }
+        public virtual Kitchen Kitchen { get; set; }
 
     }
 }

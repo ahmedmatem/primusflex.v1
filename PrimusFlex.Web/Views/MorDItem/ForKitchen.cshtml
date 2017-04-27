@@ -1,0 +1,17 @@
+﻿@model IEnumerable<PrimusFlex.Web.ViewModels.MorDItemViewModel>
+
+@{
+    ViewBag.Title = "ForKitchen";
+}
+<h2>Missings &amp; Damages</h2>
+
+<h4>@ViewBag.SiteName, Plot @ViewBag.PlotNumber, @ViewBag.kitchenCompany</h4>
+
+<p><a href="@Url.Content("~/MorDItem/Create/" + ViewBag.kitchenId)" class=" btn btn-default"><i class="fa fa-plus"> Add new record</i></a></p>
+
+
+@Html.Partial("_MorDItemPartial")
+
+<div>
+    <a href="@Url.Content("~/MorDItem")"><i class="fa fa-arrow-left"></i> Back to list</a>
+</div>

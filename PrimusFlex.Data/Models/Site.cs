@@ -7,7 +7,7 @@
     {
         public Site()
         {
-            this.Kitchens = new HashSet<KitchenRecord>();
+            this.Kitchens = new HashSet<Kitchen>();
         }
 
         public string PostCode { get; set; }
@@ -18,7 +18,7 @@
 
         // Navigation properties
 
-        public virtual ICollection<KitchenRecord> Kitchens { get; set; }
+        public virtual ICollection<Kitchen> Kitchens { get; set; }
 
     }
 }

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<PrimusFlex.Web.ViewModels.DayworkViewModel>
+
+@{
+    ViewBag.Title = "Dayworks  list";
+}
+
+<h2>Dayworks</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    <a href="@Url.Content("~/Daywork/Create")" class="btn btn-primary btn-sm"><i class="fa fa-plus">&nbsp;&nbsp;Create new</i></a>
+</p>
+
+<table class="table table-bordered table-hover table-condensed">
+    <thead>
+        <tr class="thead-primary">
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SiteName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+        <td class="text-center">
+            <a href="@Url.Content("~/Daywork/Edit/" + item.Id)" title="Edit"><i class="fa fa-edit"></i></a>
+            <a href="@Url.Content("~/Daywork/Delete/" + item.Id)" title="Delete"><i class="fa fa-trash"></i></a>
+        </td>
+    </tr>
+}
+
+</table>

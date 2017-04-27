@@ -12,8 +12,8 @@
     {
         public ApplicationUser()
         {
-            this.Kitchens = new HashSet<KitchenRecord>();
-            this.Dayworks = new HashSet<DayworkRecord>();
+            this.Kitchens = new HashSet<Kitchen>();
+            this.Dayworks = new HashSet<Daywork>();
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -26,8 +26,8 @@
 
         // Navigation properties
 
-        public virtual ICollection<KitchenRecord> Kitchens { get; set; }
+        public virtual ICollection<Kitchen> Kitchens { get; set; }
 
-        public virtual ICollection<DayworkRecord> Dayworks { get; set; }
+        public virtual ICollection<Daywork> Dayworks { get; set; }
     }
 }

@@ -1,0 +1,62 @@
+﻿@using PrimusFlex.Data.Models
+
+@model IEnumerable<PrimusFlex.Web.ViewModels.MorDItemViewModel>
+    @{ 
+        bool hasmissing = false;
+        bool hasDamage = false;
+    }
+
+@foreach (var item in Model)
+{
+    if(item.MorDType == MorDType.MISSING)
+    {
+        hasmissing = true;
+        continue;
+    }
+    if(item.MorDType == MorDType.DAMAGED)
+    {
+        hasDamage = true;
+        continue;
+    }
+}
+
+
+@if (hasmissing)
+{
+<div class="panel panel-primary">
+    <div class="panel-heading"><h3 class="panel-title">Missings</h3></div>
+    <div class="panel-body">
+        @foreach (var item in Model)
+        {
+            if (item.MorDType == PrimusFlex.Data.Models.MorDType.MISSING)
+            {
+                <div class="col-md-6">@item.Count x @item.Width x @item.Height @item.HandSide @item.Item.Name</div>
+                <br />
+            }
+        }
+    </div>
+</div>
+}
+
+@if (hasDamage)
+{
+<div class="panel panel-primary">
+    <div class="panel-heading"><h3 class="panel-title">Damages</h3></div>
+    <div class="panel-body">
+        @foreach (var item in Model)
+        {
+            if (item.MorDType == PrimusFlex.Data.Models.MorDType.DAMAGED)
+            {
+                <div class="col-md-6">@item.Count x @item.Width x @item.Height @item.HandSide @item.Item.Name</div>
+                <br />
+            }
+        }
+    </div>
+</div>
+}
+
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+</p>*@

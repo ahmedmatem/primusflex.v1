@@ -1,0 +1,97 @@
+﻿@model IEnumerable<PrimusFlex.Web.ViewModels.KitchenViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Kitchens</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    <a href="@Url.Content("~/kitchen/create")" class="btn btn-primary btn-sm"><i class="fa fa-plus">&nbsp;&nbsp;Create new</i></a>
+</p>
+<table class="table table-bordered table-condensed table-hover">
+    <thead>
+        <tr class="thead-primary">
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlotNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shape)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.ImageCount)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.HasMorDItem)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
+            <th class="text-center">
+                Action
+            </th>
+        </tr>
+    </thead>
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SiteName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlotNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Shape)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.ImageCount)
+                </td>
+                <td class="text-center">
+                    
+                    @if (item.HasMorDItem)
+                    {
+                        <i class="fa fa-check text-primary"></i>
+                        <a href="@Url.Content("~/MorDItem/ForKitchen/" + item.Id)" title="View" class="pull-right"><i class="fa fa-eye"></i></a>
+                    }
+                    else
+                    {
+                        <i class="fa fa-ban"></i>
+                        <a href="@Url.Content("~/MorDItem/ForKitchen/" + item.Id)" title="Add missing or damages item(s)" class="pull-right"><i class="fa fa-plus"></i></a>
+                    }
+                    
+                </td>
+                <td class="text-center">
+                    @if (item.Note != null)
+                    {
+                        <i class="fa fa-commenting-o" title="@item.Note"></i>
+                    }
+                </td>
+                <td class="text-center">
+                    <a href="@Url.Content("~/Kitchen/Edit/" + item.Id)" title="Edit" ><i class="fa fa-edit"></i></a>
+                    <a href="@Url.Content("~/Kitchen/Delete/" + item.Id)" title="Delete" ><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+    }
+
+</table>
