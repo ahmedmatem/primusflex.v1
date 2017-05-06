@@ -41,6 +41,9 @@
                         <li class="@Html.IsSelected(actions : "Index", controllers : "Item", cssClass: "active")">
                             @Html.ActionLink("Items", "Index", "Item")
                         </li>
+                        <li class="@Html.IsSelected(actions : "Index", controllers : "Site", cssClass: "active")">
+                            @Html.ActionLink("Sites", "Index", "Site")
+                        </li>
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>

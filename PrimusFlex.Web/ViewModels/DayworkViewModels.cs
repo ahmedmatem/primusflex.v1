@@ -11,7 +11,7 @@ namespace PrimusFlex.Web.ViewModels
     public class DayworkViewModel
     {
         public int Id { get; set; }
-
+        
         public DateTime Date { get; set; }
 
         public string Note { get; set; }

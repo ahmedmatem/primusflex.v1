@@ -56,7 +56,7 @@
             var sites = new SiteData(this.sites).GetAllSitesAsSelectListItems();
 
             // setting some default values
-            model.Date = DateTime.Now.ToShortDateString();
+            model.Date = DateTime.Now.ToString("dd/MM/yyyy");
             model.SiteNames = sites;
 
             return View(model);

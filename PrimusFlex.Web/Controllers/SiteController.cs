@@ -6,6 +6,8 @@
     using System.Web;
     using System.Web.Mvc;
 
+    using Microsoft.AspNet.Identity;
+
     using PrimusFlex.Data.Common;
     using PrimusFlex.Data.Models;
     using PrimusFlex.Web.ViewModels;

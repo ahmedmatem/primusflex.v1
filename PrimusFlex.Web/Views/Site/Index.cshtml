@@ -1,0 +1,38 @@
+﻿@model IEnumerable<PrimusFlex.Web.ViewModels.SiteViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Sites</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    <a href="@Url.Content("~/Site/create")" class="btn btn-primary btn-sm"><i class="fa fa-plus">&nbsp;&nbsp;Create new</i></a>
+</p>
+
+<table class="table table-bordered table-hover table-condensed">
+    <thead>
+        <tr class="thead-primary">
+            <th>@Html.DisplayNameFor(m => m.Name)</th>
+            <th>@Html.DisplayNameFor(m => m.Address)</th>
+            <th>@Html.DisplayNameFor(m => m.PostCode)</th>
+            <th class="text-center">
+                Action
+            </th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(m => item.Name)</td>
+            <td>@Html.DisplayFor(m => item.Address)</td>
+            <td>@Html.DisplayFor(m => item.PostCode)</td>
+            <td class="text-center">
+                <a href="@Url.Content("~/Site/Edit/" + item.Id)" title="Edit"><i class="fa fa-edit"></i></a>
+                <a href="@Url.Content("~/Site/Delete/" + item.Id)" title="Delete"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+    }
+    <tbody></tbody>
+</table>

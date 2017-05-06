@@ -1,4 +1,4 @@
-﻿namespace PrimusFlex.WebApi.Controllers.ApiControllers
+﻿namespace PrimusFlex.WebApi.Controllers
 {
     using System.Data.Entity;
     using System.Web.Http;
