@@ -58,7 +58,7 @@
                 return BadRequest(string.Format("The requested kitchen with id:{0} for user:{1} does not exist", id, User.Identity.GetUserName()));
             }
 
-            var kitchenModel = new KitchenViewModel()
+            var kitchenModel = new KitchenDetailsViewModel()
             {
                 Id = kitchen.Id,
                 Date = kitchen.Date,
@@ -67,7 +67,16 @@
                 PlotNumber = kitchen.PlotNumber,
                 Company = kitchen.CompanyType.ToString(),
                 Shape = kitchen.WorktopShape.ToString(),
-                Note = kitchen.Note
+                Note = kitchen.Note,
+                HasMorDItem = (kitchen.MorDItems != null && kitchen.MorDItems.Count > 0),
+                MorDItems = kitchen.MorDItems.Select(x => new MorDItemViewModel()
+                {
+                    MorDItemId = x.Id,
+                    Count = x.Count,
+                    Size = x.Size,
+                    HandSide = x.HandSide,
+                    MorDType = x.MorDType
+                }).ToList()
             };
 
             return Ok(kitchenModel);

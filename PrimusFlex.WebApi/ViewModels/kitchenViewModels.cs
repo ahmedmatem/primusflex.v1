@@ -36,4 +36,22 @@
         public string invalidKitchenError { get; set; }
     }
 
+    public class MorDItemViewModel
+    {
+        public int MorDItemId { get; set; }
+
+        public int? Count { get; set; }
+
+        public Size Size { get; set; }
+
+        public HandSide? HandSide { get; set; }
+
+        public MorDType MorDType { get; set; }
+    }
+
+    public class KitchenDetailsViewModel : KitchenViewModel
+    {
+        public ICollection<MorDItemViewModel> MorDItems { get; set; }
+    }
+
 }
