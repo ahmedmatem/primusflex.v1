@@ -17,14 +17,16 @@
     public class KitchenController : BaseController
     {
         public IDbRepository<Kitchen> kitchens;
+        public IDbRepository<KitchenImage> images;
 
         public KitchenController()
         {
             this.kitchens = new DbRepository<Kitchen>(this.context);
+            this.images = new DbRepository<KitchenImage>(this.context);
         }
 
-        // api/kitchens
-        [Route("api/kitchens")]
+        // api/kitchen/all
+        [Route("api/kitchen/all")]
         public IHttpActionResult GetAll()
         {
             string fitterId = User.Identity.GetUserId();
@@ -48,7 +50,7 @@
         }
 
         [Route("api/kitchen/{id}")]
-        public IHttpActionResult GetbyId(int id)
+        public IHttpActionResult Get(int id)
         {
             var kitchen = this.kitchens.GetById(id);
 
@@ -80,6 +82,23 @@
             };
 
             return Ok(kitchenModel);
+        }
+
+        // api/kitchen/images/kitchenId
+        [Route("api/kitchen/imageurls/{id}")]
+        public IHttpActionResult GetImageUrls(int id)
+        {
+            Kitchen kitchen = this.kitchens.GetById(id);
+            if(kitchen == null)
+            {
+                return BadRequest();
+            }
+
+            var urls = kitchen.KitchenImages
+                                .Select(k => k.Url)
+                                .ToList<String>();
+
+            return Ok(urls);
         }
     }
 }

@@ -18,7 +18,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", id = "datepicker" } })
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control width-2x", id = "datepicker" } })
                 <br />
                 @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
             </div>
@@ -27,7 +27,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.SiteId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.SiteId, Model.SiteNames, "Select a site name", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.SiteId, Model.SiteNames, "Select a site name", new { @class = "form-control" } )
                 <button class="btn btn-default" id="create-site"><i class="fa fa-plus"> New site</i></button>
                 <br />
                 @Html.ValidationMessageFor(model => model.SiteId, "", new { @class = "text-danger" })
@@ -37,7 +37,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CompanyType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.CompanyType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EnumDropDownListFor(model => model.CompanyType,  new { @class = "form-control" } )
                 <br />
                 @Html.ValidationMessageFor(model => model.CompanyType, "", new { @class = "text-danger" })
             </div>
@@ -46,7 +46,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control" } )
                 <br />
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
@@ -55,7 +55,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Note,  new { @class = "form-control" } )
                 <br />
                 @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
             </div>

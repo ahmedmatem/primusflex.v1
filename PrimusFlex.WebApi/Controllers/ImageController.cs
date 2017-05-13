@@ -11,6 +11,7 @@
 
     using PrimusFlex.Data.Common;
     using PrimusFlex.Data.Models;
+    using PrimusFlex.WebApi.ViewModels;
 
     [Authorize]
     public class ImageController : BaseController
@@ -19,23 +20,34 @@
 
         public ImageController()
         {
-            this.kitchenImages = new DbRepository<KitchenImage>(context);
+            this.kitchenImages = new DbRepository<KitchenImage>(this.context);
         }
 
-        //// api/image/save
-        //[Route("api/image/save")]
-        //[HttpPost]
-        //public IHttpActionResult SaveImageDetails([FromBody] KitchenImage image)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest();
-        //    }
+        // api/image/save
+        [Route("api/image/save")]
+        public IHttpActionResult SaveKitchenDetails(KitchenImage image)
+        {
+            this.kitchenImages.Add(image);
+            this.kitchenImages.Save();
 
-        //    this.kitchenImages.Add(image);
-        //    this.kitchenImages.Save();
+            return Ok();
+        }
 
-        //    return Ok();
-        //}
+        // api/image/delete/
+        [Route("api/image/delete/{publicId}")]
+        public IHttpActionResult Delete(string publicId)
+        {
+            KitchenImage image = this.kitchenImages.All()
+                                    .FirstOrDefault(i => i.PublicId == publicId);
+            if(image == null)
+            {
+                return BadRequest();
+            }
+
+            this.kitchenImages.HardDelete(image);
+            this.kitchenImages.Save();
+
+            return Ok();
+        }
     }
 }
